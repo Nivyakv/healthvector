@@ -7,7 +7,7 @@ import json
 st.set_page_config(page_title="Patient Health Intelligence", page_icon="🩺", layout="wide")
 
 # ── Load Data ────────────────────────────────────────────────────
-@st.cache_data
+@st.cache_data(ttl=0)
 def load_data():
     df = pd.read_csv("patient_health_data.csv", parse_dates=["date_of_test"])
     summary = pd.read_csv("patient_summary.csv")
@@ -124,7 +124,7 @@ elif page == "Risk Ranking":
     with col1:
         traj_filter = st.multiselect("Filter by worst trajectory", URGENCY, default=URGENCY[:5])
     with col2:
-        burden_filter = st.multiselect("Filter by burden trend", ["worsening","stable","improving","insufficient_data"], default=["worsening","stable","improving","insufficient_data"])
+        burden_filter = st.multiselect("Filter by burden trend", ["worsening","stable","improving"], default=["worsening","stable","improving"])
 
     display = ranked[ranked["worst_trajectory"].isin(traj_filter) & ranked["burden_trend"].isin(burden_filter)].copy()
 
