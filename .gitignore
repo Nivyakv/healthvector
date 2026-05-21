@@ -1,0 +1,37 @@
+# API keys - never commit these
+.env
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+
+# Temporary / checkpoint files
+patient_summary_new.csv
+patient_summary_nb.csv
+*.ipynb_checkpoints/
+.gemini/
+
+# Helper / debug scripts (not needed for the app)
+spotcheck.py
+estimate_tokens.py
+audit_summaries.py
+validate_summaries.py
+progress_check.py
+map_cells.py
+find_s4.py
+read_cell.py
+check_output.py
+update_section4.py
+fix_notebook_structure.py
+fix_notebook_final.py
+fix_worst_traj.py
+fix_classification.py
+fix_classification2.py
+fix_csv_lock.py
+debug_insuf.py
+test_section5.py
+patch_notebook.py
+build_notebook.py
+regenerate_summaries.py
+run_summaries.py
